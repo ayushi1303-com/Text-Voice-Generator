@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXT-TO-VOICE CONVERTER</title>
+    <style>
+    body,html{
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .container{
+        background-color: rgb(21, 174, 125);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        border: 9px solid black;
+        flex-direction: column;
+        
+    }
+    .box{
+        background-color: white;
+        text-align: center;
+        padding: 5px solid black;
+        border-radius: 20px;
+        padding: 50px 100px;
+        border: 8px solid rgb(226, 89, 43);
+    }
+    textarea{
+        height: 200px;
+        width: 300px;
+        border: 5px solid black;
+    }
+   
+    
+    button{
+        background-color: rgb(17, 163, 168);
+        height: 50px;
+        width: 260px;
+        border: 2px solid black;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    button:hover{
+        transform:scale(1.03);
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>Text-To-Voice Converter</h2>
+            <textarea id="inputtext" placeholder="Enter Text here..."></textarea><br><br>
+            <button onclick="converter()">Text converter</button>
+         </div>
+    </div>
+    <script>
+        function converter(){
+            let input = document.getElementById("inputtext").value;
+            if(input.trim() ==""){
+                alert("Please enter the text first")
+                return;
+            }
+            let voice = new SpeechSynthesisUtterance(input);
+            window.speechSynthesis.speak(voice);//.speak(voice) is a default function
+        }
+    </script>
+    
+</body>
+</html>
